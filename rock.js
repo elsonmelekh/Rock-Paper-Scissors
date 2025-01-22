@@ -106,6 +106,6 @@ function playRound(humanChoice, computerChoice) {
 
     }
 
-    playGame();
+    console.log(playGame());
 
    
