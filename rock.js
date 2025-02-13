@@ -106,6 +106,9 @@ function playRound(humanChoice, computerChoice) {
 
     }
 
-playGame();
+    let i = 0
+    do {
+        result;
+    } while (i < 5);
 
    
