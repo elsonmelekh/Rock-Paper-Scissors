@@ -1,114 +1,76 @@
-function getComputerChoice(){
-
-    let computerChoice = Math.random()
-
-    switch (true) {
-        case (computerChoice <= 1/3):
-            return 'rock';
-        
-        case (computerChoice <= 2/3):
-            return 'paper';
-
-        default:
-            return 'scissors';
-    }  
-}
-
-
-function getHumanChoice() {
-    let humanChoice = prompt('Input your preferred choice (rock, paper, or scissors)').toLowerCase();
-    return humanChoice.toLowerCase();
-}
-
-
-
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-
-const win = 'You Win'
-const lose = 'you Lose'
-const tie = 'Tie'
-
-
-
-
-function playRound(humanChoice, computerChoice) {
-
-    ///ROCK OPTIONS
-    if (humanChoice === 'rock') {
-        if (computerChoice === 'rock') {
-            return `${tie}. You choose ${humanChoice}, computer choose ${computerChoice}`;
-        } 
-        else if (computerChoice === 'scissors') {
-            return `${win}. You choose ${humanChoice}, computer choose ${computerChoice}`;
-        }
-        else {
-        
-            return `${lose}. You choose ${humanChoice}, computer choose ${computerChoice}`;
-        }
+function computerMove(){
+    let computer = Math.random()
+    let choice = ``
+    if (computer < 1/3 ){
+        choice = `rock`
+    } else if (computer < 2/3){
+        choice = `paper`
+    } else {
+        choice = `scissors`
     }
+    return choice;
+}
 
-    //paper options
-    if (humanChoice === 'paper') {
-        if (computerChoice === 'rock') {
+let rock = document.querySelector(`#rock`)
+let paper = document.querySelector(`#paper`)
+let scissors = document.querySelector(`#scissors`)
+
+
+
+
+let win = `YOU WIN`
+let lose = `YOU LOSE`
+let tie  = `IT'S A TIE`
+
+// rock
+function HumanRock() {
+    let choice = computerMove()
+    let rockPara = document.querySelector(`#Para`)
+    if (choice === `rock`) {
+        rockPara.textContent = `${tie}. You choose Rock. computer choose `+ choice
+        
+    } else if (choice === `paper`){
+        rockPara.textContent = `${lose}. You choose Rock. computer choose `+ choice
+
+    } else{
+        rockPara.textContent = `${win}. You choose Rock. computer choose `+ choice
+    }
     
-            return `${win}. You choose ${humanChoice}, computer choose ${computerChoice}`; 
-        } 
-        else if (computerChoice === 'scissors') {
+}
+
+// paper
+function HumanPaper() {
+    let choice = computerMove()
+    let paperPara = document.querySelector(`#Para`)
+    if (choice === `paper`) {
+        paperPara.textContent = `${tie}. You choose Paper. computer choose `+ choice
         
-            return `${lose}. You choose ${humanChoice}, computer choose ${computerChoice}`;
-        }
-        else {
-            return `${tie}. You choose ${humanChoice}, computer choose ${computerChoice}`;
-        }
-    }
+    } else if (choice === `rock`){
+        paperPara.textContent = `${win}. You choose Paper. computer choose `+ choice
 
-    ////scissors option
-    if (humanChoice === 'scissors') {
-        if (computerChoice === 'scissors') {
-            return `${tie} You choose ${humanChoice}, computer choose ${computerChoice}`;
-        } 
-        else if (computerChoice === 'paper') {
+    } else{
+        paperPara.textContent = `${lose}. You choose Paper. computer choose `+ choice
+    }
+    
+}
+
+// SCISSORS
+function HumanScissors() {
+    let choice = computerMove()
+    let scissorsPara = document.querySelector(`#Para`)
+    if (choice === `paper`) {
+        scissorsPara.textContent = `${win}. You choose Scissors. computer choose `+ choice
         
-            return `${win}. You choose ${humanChoice}, computer choose ${computerChoice}`;
-        }
-        else {
-            return `${lose} You choose ${humanChoice}, computer choose ${computerChoice}`;
+    } else if (choice === `rock`){
+        scissorsPara.textContent = `${lose}. You choose Scissors. computer choose `+ choice
+
+    } else{
+        scissorsPara.textContent = `${tie}. You choose scissors. computer choose `+ choice
     }
+    
+}
 
-     }
+rock.addEventListener(`click`, HumanRock)
+paper.addEventListener(`click`, HumanPaper)
+scissors.addEventListener(`click`, HumanScissors)
 
-    }
-
-    let result = playRound(humanSelection,computerSelection)
-
-    function playGame(){
-        let humanScore = 0;
-        let computerScore = 0;
-
-        console.log(result);
-
-        if (result.includes(`${win}`)) {
-            humanScore++;
-            console.log(`human = ${humanScore}, computer =${computerScore}`)
-            
-        } else if (result.includes(`${lose}`)){
-            computerScore++;
-            console.log(`human = ${humanScore}, computer =${computerScore}`)
-        } else{
-            console.log('tie')
-        }
-
-
-
-
-
-    }
-
-    let i = 0
-    do {
-        result;
-    } while (i < 5);
-
-   

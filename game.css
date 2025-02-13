@@ -1,0 +1,36 @@
+body{
+    background-color: black;
+    color: white;
+    text-align: center;
+    display:flex; 
+    flex-direction:column; justify-content:center;
+  min-height:100vh;
+}
+
+.card{
+    background-color: black;
+
+}
+#cards{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    
+}
+#head{
+    margin-top: 0;
+}
+
+#Para{
+    margin-top: 5rem;
+    font-weight: bold;
+    color: burlywood;
+    font-family: "Doto", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: bolder;
+  font-variation-settings:
+    "ROND" 0;
+}
